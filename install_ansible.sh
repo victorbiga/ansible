@@ -9,5 +9,7 @@
 #Test date      :
 #Test result    :NA
 
+sudo su
+yum update -y
 pip install --upgrade pip
 pip install ansible
