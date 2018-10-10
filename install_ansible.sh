@@ -16,3 +16,5 @@ yum update -y
 yum-config-manager --enable epel
 yum repolist
 yum install ansible -y
+yum install git -y
+yum install docker -y
