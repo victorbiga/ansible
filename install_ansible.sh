@@ -18,3 +18,7 @@ yum repolist
 yum install ansible -y
 yum install git -y
 yum install docker -y
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+
