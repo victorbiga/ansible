@@ -29,9 +29,13 @@ docker run \
   --detach \
   --restart always \
   depositsolutions/jenkins-automation
+
 sleep 10
-docker run \ 
+
+docker run \
   --name nagios4 \
-  --publish 0.0.0.0:80:80 \ 
-  --restart always \ 
+  --publish 0.0.0.0:80:80 \
+  --detach \
+  --restart always \
   jasonrivers/nagios:latest
+
