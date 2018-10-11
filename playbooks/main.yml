@@ -1,0 +1,18 @@
+---
+-hosts: localhost
+
+pre_tasks:
+        - name: update yum cache if needed
+          yum: update_cache=yes cache_valid_time=3600
+
+tasks:
+ - name: Install all required apps
+   yum: name={{ item }} state=present
+   with_items:
+     - git
+     - docker
+
+- name: Start Docker service
+  service: name=docker state=started
+ 
+       
