@@ -22,15 +22,12 @@ yum install git -y
 yum install docker -y
 service docker start
 usermod -a -G docker ec2-user
-reboot
 docker run \
   --name auto-jenkins \
   --publish 0.0.0.0:8080:8080 \
   --detach \
   --restart always \
   depositsolutions/jenkins-automation
-
-sleep 10
 
 docker run \
   --name nagios4 \
