@@ -1,0 +1,35 @@
+---
+
+- hosts: nagios
+  become: yes
+  remote_user: ec2-user
+  tasks:
+
+        - name: upgrade all packages
+          yum:
+            name: '*'
+            state: latest
+
+        - name: install git, docker and tree
+          yum: name={{ item }} state=present
+          with_items:
+            - git
+            - docker
+            - tree
+
+        - name: start docker service
+          service: name=docker state=started
+
+        - name: install docker py dependancies
+          easy_install: name=docker-py state=present
+
+        - name: pull nagios autoinstall image
+          docker_image: name=jasonrivers/nagios state=present
+
+        - name:
+          docker_container:
+                name: nagios
+                image: jasonrivers/nagios
+                state: started
+                published_ports: 80:80
+

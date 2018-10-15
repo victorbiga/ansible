@@ -1,0 +1,19 @@
+---
+
+- hosts: nagios
+  remote_user: ec2-user
+  become: yes
+  tasks:
+
+        - name: stop docker service
+          service: name=docker state=stopped
+
+        - name: remove installed things
+          yum:
+            name: "{{ item }}"
+            state: absent
+          with_items:
+             - git
+             - docker
+             - tree
+
