@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #Script Name:	install_ansible.sh
 #Description:	This script will install ansible, docker, git and start 2 containers - nagios4 and automated jenkins installation with default users  on EC2 instance
 #Run where:	AWS EC2 AMI
